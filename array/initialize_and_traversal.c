@@ -41,8 +41,7 @@ void MultiDimantionArray(void){
 
 int main(){
   int ch,ch2;
-  printf(" Enter 1 for 1D array\n or 2
-   for 2D array\n");
+  printf(" Enter 1 for 1D array\n or 2  for 2D array \n");
   scanf("%d",&ch);
   if (ch == 1){
     SingleDimantionArray();
