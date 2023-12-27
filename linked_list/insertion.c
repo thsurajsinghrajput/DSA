@@ -1,57 +1,81 @@
-// Deleting the first node            -> Time complexity:  O(1)
-// Deleting a node in between   -> Time complexity:  O(n)
-// Deleting the last node            -> Time complexity:  O(n)
-// Deleting the element with a given value from the linked list     -> Time complexity:  O(n)
-
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node {
+struct node
+{
   int data;
   struct node *next;
 };
 
-struct node * insertionAtBeginig(struct node *head){
-    struct node *a;
+// insertion at begining
 
-    a= (struct node *)malloc(sizeof(struct node));
-    a->next = head;
-    a->data = 10;
-    return a;
-
-}
-// Case 3
-struct Node * insertAtEnd(struct Node *head, int data){
-    struct Node * ptr = (struct Node *) malloc(sizeof(struct Node));
-    ptr->data = data;
-    struct Node * p = head;
-
-    while(p->next!=NULL){
-        p = p->next;
-    }
-    p->next = ptr;
-    ptr->next = NULL;
-    return head;
+struct node *insertionAtBegining(struct node *head, int data)
+{
+  struct node *ptr = (struct node *)malloc(sizeof(struct node));
+  ptr->next = head;
+  ptr->data = data;
+  return ptr;
 }
 
+// insertion at end
 
+void insertionAtEnd(struct node *head, int data)
+{
+  struct node *ptr = (struct node *)malloc(sizeof(struct node));
+  struct node *p = head;
+  while (p->next != NULL)
+  {
+    p = p->next;
+  }
+  p->next = ptr;
+  ptr->data = data;
+  ptr->next = NULL;
+}
+//insertion after a node
+void insertionAfterNode(struct node *head, struct node *previousNode,int data){
+  struct node *ptr = (struct node *)malloc(sizeof(struct node));
+  ptr->next = previousNode->next;
+  previousNode->next = ptr;
+  ptr->data = data;
+}
 
-void display(struct node *head) {
+//insertion at givin index
+
+void insertionAtIndex(struct node *head,int index,int data){
+  struct node *ptr = (struct node *)malloc(sizeof(struct node));
+  struct node *p =head;
+  int i=0;
+  while (i!=index-1)
+  {
+    p = p->next;
+    i++;
+  }
+  ptr->next = p->next;
+  ptr->data = data;
+  p->next = ptr;
+  
+  
+}
+
+void display(struct node *head)
+{
   struct node *ptr = head;
-  while (ptr != NULL) {
-    if (ptr->next == NULL) {
+  while (ptr != NULL)
+  {
+    if (ptr->next == NULL)
+    {
       printf(" %d->NULL", ptr->data);
-    } else {
+    }
+    else
+    {
       printf(" %d->", ptr->data);
     }
     ptr = ptr->next; // Traversing the List till end
   }
 }
 
-
-
-
-int main() {
+int main()
+{
   // creating node;
   struct node *head;
   struct node *secound;
@@ -71,10 +95,13 @@ int main() {
   third->next = NULL;
 
   // diplay the liked list;
-printf ("\nbefore insertion\n");
+  printf("\n before insertion\n");
   display(head);
-  printf("\nafter insertion\n");
-//   head =  insertionAtBeginig(head);
-    insertAtEnd(head,10);
-    display(head);
+  // head = insertionAtBegining(head,5);
+  // insertionAtEnd(head,5);
+  // insertionAfterNode(head,secound,5);
+  insertionAtIndex(head,1,5);
+
+  printf("\n after insertion\n");
+  display(head);
 }

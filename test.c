@@ -55,14 +55,14 @@
 
 
 #include <stdio.h>
-void test(int n, int arr[]){
-    n = n+10;
-  arr[0] = 12;
-    // printf("%d",n);
-}
+// void test(int n, int arr[]){
+//     n = n+10;
+//   arr[0] = 12;
+//     // printf("%d",n);
+// }
 int main(){
-    int n = 20;
-    int arr[2] = {1,2,3};
-    test(n,arr);
+    // int n = 20;
+    int arr[92233720368547780] = {1,2,3};
+    // test(n,arr);
     printf("%d",arr[0]);
 }
