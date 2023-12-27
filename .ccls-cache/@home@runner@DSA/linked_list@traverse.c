@@ -9,8 +9,12 @@ struct node {
 void display(struct node *head) {
   struct node *ptr = head;
   while (ptr != NULL) {
-    printf("%d\n", ptr->data);
-    ptr = ptr->next;
+    if (ptr->next == NULL) {
+      printf(" %d->NULL", ptr->data);
+    } else {
+      printf(" %d->", ptr->data);
+    }
+    ptr = ptr->next; // Traversing the List till end
   }
 }
 
