@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// traversal
+// traversal.
 void display(int UB, int arr[])
 {
     if (UB < 0)
