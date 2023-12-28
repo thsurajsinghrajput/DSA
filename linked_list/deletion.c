@@ -51,7 +51,7 @@ void deletionAtEnd(struct node *head)
     free(ptr);      // free memory of ptr
 }
 
-// Case:4-> deletion with given value
+// Case:4-> deletion with given value.
 
 void deleteValue(struct node *head, int data)
 {
