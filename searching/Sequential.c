@@ -11,7 +11,7 @@ void Sequential_search(int arr[], int n,int size)
         {
             printf("element %d found at postion %d",n,i);
             flag = 1;
-            break;
+            break; 
         }
         
         
